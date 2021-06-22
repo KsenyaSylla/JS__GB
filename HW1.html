@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW1</title>
+</head>
+
+<body>
+    <script>
+        //температура по Фаренгейту
+        let tempC = +prompt("Введите температуру в градусах по Цельсию");
+        let tempF = ((9 / 5) * tempC) + 32;
+        alert(`Температура в градусах по Цельсию ${tempC}, температура по Фаренгейту ${tempF}`);
+
+        //задачка 2
+        let name = "Василий";
+        let admin = name;
+        console.log(admin);
+
+        //задача 3
+        let result = 10 + 10 + '10';
+        console.log(result); // складывает две первые слева 10 как числа, получается 20, третья 10 в кавычках, поэтому читается как строка и конкатенируется с 20(приводится к строке тоже). Выведет 2010.
+        result = 10 + "10" + 10;
+        console.log(result); // выражение справа от равно (оператор присваивания) читается слева направо, "10" - это строка, потому все 10 сконкатенируются. 101010.
+        result = 10 + 10 + +"10";
+        console.log(result); // первые две 10 - это тип number, результат сложения 20, плюс перед "10" преобразуется строку "10" в число. Результат выражения 30 
+
+        result = 10 / -"";
+        console.log(result); // "" - это ничто, то есть ноль. Деление на -0 даст -infinity.
+
+
+        result = 10 / +"2,5";
+        console.log(result); // "2,5" - это строка, + должен бы преобразовать в number, но дробные числа с точкой должны быть. Поэтому получится NaN. 10 разделить на NaN получится NaN.
+    </script>
+</body>
+
+</html>
