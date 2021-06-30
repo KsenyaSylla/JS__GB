@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict"
+
+        // задача 1
+        let number = 0;
+        for (let i = 0; i <= 10; i++) {
+            if (number == 0) {
+                console.log(`${number} - это ноль`);
+            } else if (number % 2 == 0) {
+                console.log(`${number} - это четное число.`);
+            } else console.log(`${number} - это нечетное число.`);
+            ++number;
+        }
+
+        //задача 2
+
+        const post = {
+            author: "John", //вывести этот текст
+            postId: 23,
+            comments: [{
+                userId: 10,
+                userName: "Alex",
+                text: "lorem ipsum",
+                rating: {
+                    likes: 10,
+                    dislikes: 2 //вывести это число
+                }
+            }, {
+                userId: 5, //вывести это число
+                userName: "Jane",
+                text: "lorem ipsum 2", //вывести этот текст
+                rating: {
+                    likes: 3,
+                    dislikes: 1
+                }
+            }, ]
+        };
+
+        console.log(post.author);
+        console.log(post.comments[0].rating.dislikes);
+        console.log(post.comments[1].userId);
+        console.log(post.comments[1].text);
+
+        // задача 4
+
+        const products = [{
+            id: 3,
+            price: 200,
+        }, {
+            id: 4,
+            price: 900,
+        }, {
+            id: 1,
+            price: 1000,
+        }, ];
+
+        products.forEach((product) => {
+            product.price = product.price - ((product.price / 100) * 15);
+        });
+        console.log(products);
+
+        //задача 5
+
+        const products = [{
+            id: 3,
+            price: 127,
+            photos: [
+                "1.jpg",
+                "2.jpg",
+            ]
+        }, {
+            id: 5,
+            price: 499,
+            photos: []
+        }, {
+            id: 10,
+            price: 26,
+            photos: [
+                "3.jpg"
+            ]
+        }, {
+            id: 8,
+            price: 78,
+        }, ];
+
+        let photosIn = products.filter((product) => {
+            return product.photos !== undefined;
+        });
+        for (let i = 0; i < photosIn.length; i++) {
+            if (photosIn[i].photos.length == 0) {
+                photosIn.splice(i, i);
+            }
+        }
+        console.log(photosIn);
+
+        products.sort(function(product1, product2) {
+            if (product1.price > product2.price) {
+                return 1;
+            }
+            if (product1.price < product2.price) {
+                return -1;
+            }
+            if (product1.price = product2.price) {
+                return 0
+            }
+        });
+
+        //задача 6
+        let pyram = "";
+        for (let i = 0; i < 20; i++) {
+            pyram += "x";
+            console.log(pyram);
+        }
+    </script>
+</body>
+
+</html>
