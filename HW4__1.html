@@ -52,6 +52,24 @@
             num = num.split("");
             return num;
         }
+        
+        /**
+         * функция нужна, если введенное число двузначное или однознгачное
+         * @param {Array} num принимает проверяемый массив
+         * @returns {Array} возвращает новый массив нужной длины
+         */
+        function makeArrayBigger(num) {
+            if (num.length < 2) {
+                number.unshift(0);
+                console.log(number);
+            }
+            if (num.length < 3) {
+                number.unshift(0);
+                console.log(number);
+            }
+
+            return number;
+        }
 
         function Numbers(units, tens, hundreds) {
             this.units = units;
@@ -62,6 +80,7 @@
         number = askUser("Введите целое число от 0 до 999");
         number = checkNumber(number);
         number = makeArray(number);
+        number = makeArrayBigger(number);
 
         let objNum = new Numbers(+number[2], +number[1], +number[0]);
         console.log(objNum);
