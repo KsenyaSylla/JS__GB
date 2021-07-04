@@ -40,6 +40,10 @@
                 num = askUser("Введите целое число от 0 до 999");
                 checkNumber(num);
             }
+            if (num <= 0) {
+                num = askUser("Введите целое положительное число от 0 до 999.");
+                checkNumber(num);
+            }
             return num;
         }
 
