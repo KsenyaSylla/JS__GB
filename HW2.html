@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        // задача 1
+
+        //пример 1
+        // let a = 1, b = 1, c, d; через запятую объявили переменные
+        // c = ++a; префиксная форма инкремента. Сначала прибавляет единицу переменной a, а затем присваивает результат c;
+        // alert (c);
+
+        //пример 2
+        // d = b++; постфиксная форма инкремента. Сначала присваивает переменной d значение, записаное в b, затем прибавляет к b единицу; 
+        // alert(d);
+
+        //пример 3
+        // с = 2 + ++a; сначала к a (из первого примера: a = 2) прибавляем 1, получается a = 3;
+        // alert (c);
+
+        //пример 4 
+        // d = 2 + b++; в переменной b записана 2 (из 2 примера. где сначала присвоили, а затем прибаавили).
+        // d = 2 + 2; в переменную b записали число 3ж
+
+        // alert (a); в a записана 3, потому что в 3 примере было ++a, что сначала прибавляет единицу, а затем присваивает a результат
+        // alert (b); в b записана 3, потому что в примере 4 мы сначала сложили и получили d = 4 (работали с b = 2), а затем к b прибавили 1.
+
+        // задача 2
+
+        let a = 2; // присваеваем переменной a значение 2, тип number.
+        let x = 1 + (a *= 2); // первым в выражении справа от равно выполнится то, что в скобках. 
+        //a *= 2 то же самое, что и a = a*2, a = 2 * 2 = 4. далее выполнится 1 + то, что получилось в скобках . Итого x = 5.
+        console.log(x);
+
+        // задача 3
+        a = Number(prompt("Введите число"));
+        let b = Number(prompt("Введите число"));
+        let result = null;
+
+        if (a >= 0 && b >= 0) {
+            result = a - b;
+            alert("Разность =  " + result);
+        } else if (a < 0 && b < 0) {
+            result = a * b;
+            alert("Произведение = " + result);
+        } else if (a >= 0 && b < 0) {
+            result = a + b;
+            alert("Сумма =" + result);
+        } else if (a < 0 && b >= 0) {
+            result = a + b;
+            alert("Сумма =" + result);
+        } else alert("Надо было ввести числа");
+
+        //задача 4
+        result = null;
+        let number = null;
+
+        /**
+         * @func [askNumber] запрашивает у пользователя число
+         * @param {number} нужен для правильного вопроса
+         * @returns {number} возвращает число, введенное пользователем
+         */
+
+        function askNumber(which) {
+            if (which == 1) {
+                return number = Number(prompt("Введите первое число"));
+            } else if (which == 2) {
+                return number = Number(prompt("Введите второе число"));
+            } else return number = Number(prompt("Введите число"));
+        }
+
+        /**
+         * @func [amount] складывает 2 числа, возвращает сумму
+         * @param {number} num1 первое число
+         * @param {number} num2 второе число
+         * @returns {number} сумма двух принимаемых чисел
+         */
+
+        function amount(num1, num2) {
+            return result = num1 + num2;
+        }
+
+        /**
+         * @func [difference] вычитает из перго числа второе, возвращает разность
+         * @param {number} num1 первое число, уменьшаемое
+         * @param {number} num2 второе число, вычитаемое
+         * @returns {number} разность двух принимаемых чисел
+         */
+        function difference(num1, num2) {
+            return result = num1 - num2;
+        }
+
+        /**
+         * @func [multiplication] умножает 2 числа, возвращает произведение
+         * @param {number} num1 первое число
+         * @param {number} num2 второе число
+         * @returns {number} произведение двух принимаемых чисел
+         */
+
+        function multiplication(num1, num2) {
+            return result = num1 * num2;
+        }
+        /**
+         * @func [separation] делит первое число на второе, возвращает разность
+         * @param {number} num1 первое число, делимое
+         * @param {number} num2 второе число, делитель
+         * @returns {number} частное двух принимаемых чисел
+         */
+        function separation(num1, num2) {
+            return result = num1 / num2;
+        }
+
+        let number1 = askNumber(1);
+        let number2 = askNumber(2);
+
+        amount(number1, number2);
+        alert(`Сумма чисел ${number1} и ${number2} равна ${result}.`);
+
+        difference(number1, number2);
+        alert(`Разность чисел ${number1} и ${number2} равна ${result}.`);
+
+        multiplication(number1, number2);
+        alert(`Произведение чисел ${number1} и ${number2} равно ${result}.`);
+
+        separation(number1, number2);
+        alert(`Частное чисел, где  ${number1} - делимое, а ${number2} - делитель, равно ${result}.`);
+
+        /**
+         * Позволяет получить точный ответ, что делать с числами
+         * не принимает никаких параметров
+         * @returns {String} возвращает строку с нужной операцией
+         */
+
+        function askOperation() {
+            let operation = confirm("Вы хотите сложить числа?")
+            if (operation == true) {
+                return operation = "amount";
+            }
+            operation = confirm("Вы хотите вычесть второе число из первого?");
+            if (operation == true) {
+                return operation = "difference";
+            }
+            operation = confirm("Вы хотите получить произведение чисел?");
+            if (operation == true) {
+                return operation = "multiplication";
+            }
+            operation = confirm("Вы хотите первое число разделить на второе?");
+            if (operation == true) {
+                return operation = "separation";
+            }
+
+        }
+
+
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case "amount":
+                    result = amount(arg1, arg2);
+                    break;
+                case "difference":
+                    result = difference(arg1, arg2);
+                    break;
+                case "multiplication":
+                    result = multiplication(arg1, arg2);
+                    break;
+                case "separation":
+                    result = separation(arg1, arg2);
+                    break;
+            }
+            alert(" Результат вычисления " + result);
+            return result;
+        }
+
+
+        let actWithNumbers = askOperation();
+        mathOperation(number1, number2, actWithNumbers);
+    </script>
+</body>
+
+</html>

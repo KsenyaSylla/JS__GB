@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict"
+
+        let number = null;
+
+        /**
+         * функция запрашивает у пользователя число и преобразует в число
+         * @param {String} text принимает текст вопроса
+         * @returns {Number} возвращает число или NaN
+         */
+        function askUser(text) {
+            number = +prompt(text);
+            return number;
+        }
+
+        /**
+         * функция проверяет, входит ли число в диапазон от 0 до 999, приводит к целому, проверяет на NaN,
+         * а также запрашивает число заново, если принятое не подходит
+         * @param {Number} num запрошенное у пользователя число
+         * @returns {Numbeer} подзодящее число
+         */
+        function checkNumber(num) {
+            num = Math.floor(num);
+            if (num > 999) {
+                num = askUser("Введите целое число до 999");
+                checkNumber(num);
+            }
+            if (Number.isNaN(num)) {
+                num = askUser("Введите целое число от 0 до 999");
+                checkNumber(num);
+            }
+            if (num <= 0) {
+                num = askUser("Введите целое положительное число от 0 до 999.");
+                checkNumber(num);
+            }
+            return num;
+        }
+
+        function makeArray(num) {
+            num = num.toString();
+            num = num.split("");
+            return num;
+        }
+        
+        /**
+         * функция нужна, если введенное число двузначное или однознгачное
+         * @param {Array} num принимает проверяемый массив
+         * @returns {Array} возвращает новый массив нужной длины
+         */
+        function makeArrayBigger(num) {
+            if (num.length < 2) {
+                number.unshift(0);
+                console.log(number);
+            }
+            if (num.length < 3) {
+                number.unshift(0);
+                console.log(number);
+            }
+
+            return number;
+        }
+
+        function Numbers(units, tens, hundreds) {
+            this.units = units;
+            this.tens = tens;
+            this.hundreds = hundreds;
+        }
+
+        number = askUser("Введите целое число от 0 до 999");
+        number = checkNumber(number);
+        number = makeArray(number);
+        number = makeArrayBigger(number);
+
+        let objNum = new Numbers(+number[2], +number[1], +number[0]);
+        console.log(objNum);
+    </script>
+</body>
+
+</html>
